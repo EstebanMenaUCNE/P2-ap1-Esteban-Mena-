@@ -33,9 +33,9 @@ namespace ParcialTech.Registros
             return true;
         }
 
-        private Entidades.TipoEmail GetInstanceCampos()
+        private Entidades.TiposEmails GetInstanceCampos()
         {
-            return new Entidades.TipoEmail(Utilidad.ToInt(tipoIdTextBox.Text), descripcionTextBox.Text);
+            return new Entidades.TiposEmails(Utilidad.ToInt(tipoIdTextBox.Text), descripcionTextBox.Text);
         }
 
         private void FrmRegistroTiposEmails_Load(object sender, EventArgs e)
@@ -82,7 +82,7 @@ namespace ParcialTech.Registros
         {
             if (!(tipoIdTextBox.Text == ""))
             {
-                Entidades.TipoEmail tipoEmail = BLL.TipoEmailBLL.Buscar(Utilidad.ToInt(tipoIdTextBox.Text));
+                Entidades.TiposEmails tipoEmail = BLL.TipoEmailBLL.Buscar(Utilidad.ToInt(tipoIdTextBox.Text));
                 if (tipoEmail != null)
                 {
                     descripcionTextBox.Text = tipoEmail.Descripcion;

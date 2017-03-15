@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label empleadoIdLabel;
             System.Windows.Forms.Label nombresLabel;
             System.Windows.Forms.Label fechaNacimientoLabel;
@@ -38,20 +39,21 @@
             this.sueldoTextBox = new System.Windows.Forms.TextBox();
             this.buscarButton = new System.Windows.Forms.Button();
             this.eliminarButton = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.nuevoButton = new System.Windows.Forms.Button();
             this.guardarButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.retencionesDataGridView = new System.Windows.Forms.DataGridView();
-            this.retencionIdTextBox = new System.Windows.Forms.TextBox();
-            this.retencionDescripcionTextBox = new System.Windows.Forms.TextBox();
+            this.agregarRetencionButton = new System.Windows.Forms.Button();
             this.retencionValorTextBox = new System.Windows.Forms.TextBox();
-            this.agregarButton = new System.Windows.Forms.Button();
+            this.retencionDescripcionTextBox = new System.Windows.Forms.TextBox();
+            this.retencionIdTextBox = new System.Windows.Forms.TextBox();
+            this.retencionesDataGridView = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.emailTextBox = new System.Windows.Forms.TextBox();
+            this.agregarEmailButton = new System.Windows.Forms.Button();
+            this.emailEmailTextBox = new System.Windows.Forms.TextBox();
+            this.emailTipoTextBox = new System.Windows.Forms.TextBox();
             this.emailIdTextBox = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.emailsDataGridView = new System.Windows.Forms.DataGridView();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             empleadoIdLabel = new System.Windows.Forms.Label();
             nombresLabel = new System.Windows.Forms.Label();
             fechaNacimientoLabel = new System.Windows.Forms.Label();
@@ -59,7 +61,8 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.retencionesDataGridView)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emailsDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // empleadoIdLabel
@@ -71,13 +74,6 @@
             empleadoIdLabel.TabIndex = 1;
             empleadoIdLabel.Text = "Empleado Id:";
             // 
-            // empleadoIdTextBox
-            // 
-            this.empleadoIdTextBox.Location = new System.Drawing.Point(127, 36);
-            this.empleadoIdTextBox.Name = "empleadoIdTextBox";
-            this.empleadoIdTextBox.Size = new System.Drawing.Size(83, 20);
-            this.empleadoIdTextBox.TabIndex = 2;
-            // 
             // nombresLabel
             // 
             nombresLabel.AutoSize = true;
@@ -86,13 +82,6 @@
             nombresLabel.Size = new System.Drawing.Size(52, 13);
             nombresLabel.TabIndex = 3;
             nombresLabel.Text = "Nombres:";
-            // 
-            // nombresTextBox
-            // 
-            this.nombresTextBox.Location = new System.Drawing.Point(127, 62);
-            this.nombresTextBox.Name = "nombresTextBox";
-            this.nombresTextBox.Size = new System.Drawing.Size(200, 20);
-            this.nombresTextBox.TabIndex = 4;
             // 
             // fechaNacimientoLabel
             // 
@@ -103,13 +92,6 @@
             fechaNacimientoLabel.TabIndex = 5;
             fechaNacimientoLabel.Text = "Fecha Nacimiento:";
             // 
-            // fechaNacimientoDateTimePicker
-            // 
-            this.fechaNacimientoDateTimePicker.Location = new System.Drawing.Point(127, 88);
-            this.fechaNacimientoDateTimePicker.Name = "fechaNacimientoDateTimePicker";
-            this.fechaNacimientoDateTimePicker.Size = new System.Drawing.Size(200, 20);
-            this.fechaNacimientoDateTimePicker.TabIndex = 6;
-            // 
             // sueldoLabel
             // 
             sueldoLabel.AutoSize = true;
@@ -118,6 +100,27 @@
             sueldoLabel.Size = new System.Drawing.Size(43, 13);
             sueldoLabel.TabIndex = 7;
             sueldoLabel.Text = "Sueldo:";
+            // 
+            // empleadoIdTextBox
+            // 
+            this.empleadoIdTextBox.Location = new System.Drawing.Point(127, 36);
+            this.empleadoIdTextBox.Name = "empleadoIdTextBox";
+            this.empleadoIdTextBox.Size = new System.Drawing.Size(83, 20);
+            this.empleadoIdTextBox.TabIndex = 2;
+            // 
+            // nombresTextBox
+            // 
+            this.nombresTextBox.Location = new System.Drawing.Point(127, 62);
+            this.nombresTextBox.Name = "nombresTextBox";
+            this.nombresTextBox.Size = new System.Drawing.Size(200, 20);
+            this.nombresTextBox.TabIndex = 4;
+            // 
+            // fechaNacimientoDateTimePicker
+            // 
+            this.fechaNacimientoDateTimePicker.Location = new System.Drawing.Point(127, 88);
+            this.fechaNacimientoDateTimePicker.Name = "fechaNacimientoDateTimePicker";
+            this.fechaNacimientoDateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.fechaNacimientoDateTimePicker.TabIndex = 6;
             // 
             // sueldoTextBox
             // 
@@ -134,6 +137,7 @@
             this.buscarButton.TabIndex = 14;
             this.buscarButton.Text = "Buscar";
             this.buscarButton.UseVisualStyleBackColor = true;
+            this.buscarButton.Click += new System.EventHandler(this.buscarButton_Click);
             // 
             // eliminarButton
             // 
@@ -143,15 +147,17 @@
             this.eliminarButton.TabIndex = 13;
             this.eliminarButton.Text = "Eliminar";
             this.eliminarButton.UseVisualStyleBackColor = true;
+            this.eliminarButton.Click += new System.EventHandler(this.eliminarButton_Click);
             // 
-            // button2
+            // nuevoButton
             // 
-            this.button2.Location = new System.Drawing.Point(80, 480);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "Nuevo";
-            this.button2.UseVisualStyleBackColor = true;
+            this.nuevoButton.Location = new System.Drawing.Point(80, 480);
+            this.nuevoButton.Name = "nuevoButton";
+            this.nuevoButton.Size = new System.Drawing.Size(75, 23);
+            this.nuevoButton.TabIndex = 12;
+            this.nuevoButton.Text = "Nuevo";
+            this.nuevoButton.UseVisualStyleBackColor = true;
+            this.nuevoButton.Click += new System.EventHandler(this.button2_Click);
             // 
             // guardarButton
             // 
@@ -161,10 +167,11 @@
             this.guardarButton.TabIndex = 11;
             this.guardarButton.Text = "Guardar";
             this.guardarButton.UseVisualStyleBackColor = true;
+            this.guardarButton.Click += new System.EventHandler(this.guardarButton_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.agregarButton);
+            this.groupBox1.Controls.Add(this.agregarRetencionButton);
             this.groupBox1.Controls.Add(this.retencionValorTextBox);
             this.groupBox1.Controls.Add(this.retencionDescripcionTextBox);
             this.groupBox1.Controls.Add(this.retencionIdTextBox);
@@ -176,27 +183,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Retenciones del Empleado";
             // 
-            // retencionesDataGridView
+            // agregarRetencionButton
             // 
-            this.retencionesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.retencionesDataGridView.Location = new System.Drawing.Point(6, 54);
-            this.retencionesDataGridView.Name = "retencionesDataGridView";
-            this.retencionesDataGridView.Size = new System.Drawing.Size(341, 82);
-            this.retencionesDataGridView.TabIndex = 0;
-            // 
-            // retencionIdTextBox
-            // 
-            this.retencionIdTextBox.Location = new System.Drawing.Point(6, 28);
-            this.retencionIdTextBox.Name = "retencionIdTextBox";
-            this.retencionIdTextBox.Size = new System.Drawing.Size(43, 20);
-            this.retencionIdTextBox.TabIndex = 1;
-            // 
-            // retencionDescripcionTextBox
-            // 
-            this.retencionDescripcionTextBox.Location = new System.Drawing.Point(55, 28);
-            this.retencionDescripcionTextBox.Name = "retencionDescripcionTextBox";
-            this.retencionDescripcionTextBox.Size = new System.Drawing.Size(153, 20);
-            this.retencionDescripcionTextBox.TabIndex = 2;
+            this.agregarRetencionButton.Location = new System.Drawing.Point(306, 26);
+            this.agregarRetencionButton.Name = "agregarRetencionButton";
+            this.agregarRetencionButton.Size = new System.Drawing.Size(41, 23);
+            this.agregarRetencionButton.TabIndex = 16;
+            this.agregarRetencionButton.Text = "+";
+            this.agregarRetencionButton.UseVisualStyleBackColor = true;
+            this.agregarRetencionButton.Click += new System.EventHandler(this.agregarButton_Click);
             // 
             // retencionValorTextBox
             // 
@@ -205,22 +200,36 @@
             this.retencionValorTextBox.Size = new System.Drawing.Size(86, 20);
             this.retencionValorTextBox.TabIndex = 3;
             // 
-            // agregarButton
+            // retencionDescripcionTextBox
             // 
-            this.agregarButton.Location = new System.Drawing.Point(306, 26);
-            this.agregarButton.Name = "agregarButton";
-            this.agregarButton.Size = new System.Drawing.Size(41, 23);
-            this.agregarButton.TabIndex = 16;
-            this.agregarButton.Text = "+";
-            this.agregarButton.UseVisualStyleBackColor = true;
+            this.retencionDescripcionTextBox.Location = new System.Drawing.Point(55, 28);
+            this.retencionDescripcionTextBox.Name = "retencionDescripcionTextBox";
+            this.retencionDescripcionTextBox.Size = new System.Drawing.Size(153, 20);
+            this.retencionDescripcionTextBox.TabIndex = 2;
+            // 
+            // retencionIdTextBox
+            // 
+            this.retencionIdTextBox.Location = new System.Drawing.Point(6, 28);
+            this.retencionIdTextBox.Name = "retencionIdTextBox";
+            this.retencionIdTextBox.Size = new System.Drawing.Size(43, 20);
+            this.retencionIdTextBox.TabIndex = 1;
+            this.retencionIdTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.retencionIdTextBox_KeyPress);
+            // 
+            // retencionesDataGridView
+            // 
+            this.retencionesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.retencionesDataGridView.Location = new System.Drawing.Point(6, 54);
+            this.retencionesDataGridView.Name = "retencionesDataGridView";
+            this.retencionesDataGridView.Size = new System.Drawing.Size(341, 82);
+            this.retencionesDataGridView.TabIndex = 0;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Controls.Add(this.textBox1);
-            this.groupBox2.Controls.Add(this.emailTextBox);
+            this.groupBox2.Controls.Add(this.agregarEmailButton);
+            this.groupBox2.Controls.Add(this.emailEmailTextBox);
+            this.groupBox2.Controls.Add(this.emailTipoTextBox);
             this.groupBox2.Controls.Add(this.emailIdTextBox);
-            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Controls.Add(this.emailsDataGridView);
             this.groupBox2.Location = new System.Drawing.Point(28, 304);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(354, 142);
@@ -228,28 +237,29 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Emails del Empleado";
             // 
-            // button1
+            // agregarEmailButton
             // 
-            this.button1.Location = new System.Drawing.Point(306, 26);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(41, 23);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "+";
-            this.button1.UseVisualStyleBackColor = true;
+            this.agregarEmailButton.Location = new System.Drawing.Point(306, 26);
+            this.agregarEmailButton.Name = "agregarEmailButton";
+            this.agregarEmailButton.Size = new System.Drawing.Size(41, 23);
+            this.agregarEmailButton.TabIndex = 16;
+            this.agregarEmailButton.Text = "+";
+            this.agregarEmailButton.UseVisualStyleBackColor = true;
+            this.agregarEmailButton.Click += new System.EventHandler(this.agregarEmailButton_Click);
             // 
-            // textBox1
+            // emailEmailTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(214, 28);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(86, 20);
-            this.textBox1.TabIndex = 3;
+            this.emailEmailTextBox.Location = new System.Drawing.Point(214, 28);
+            this.emailEmailTextBox.Name = "emailEmailTextBox";
+            this.emailEmailTextBox.Size = new System.Drawing.Size(86, 20);
+            this.emailEmailTextBox.TabIndex = 3;
             // 
-            // emailTextBox
+            // emailTipoTextBox
             // 
-            this.emailTextBox.Location = new System.Drawing.Point(55, 28);
-            this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(153, 20);
-            this.emailTextBox.TabIndex = 2;
+            this.emailTipoTextBox.Location = new System.Drawing.Point(55, 28);
+            this.emailTipoTextBox.Name = "emailTipoTextBox";
+            this.emailTipoTextBox.Size = new System.Drawing.Size(153, 20);
+            this.emailTipoTextBox.TabIndex = 2;
             // 
             // emailIdTextBox
             // 
@@ -257,14 +267,19 @@
             this.emailIdTextBox.Name = "emailIdTextBox";
             this.emailIdTextBox.Size = new System.Drawing.Size(43, 20);
             this.emailIdTextBox.TabIndex = 1;
+            this.emailIdTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.emailIdTextBox_KeyPress);
             // 
-            // dataGridView1
+            // emailsDataGridView
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 54);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(341, 82);
-            this.dataGridView1.TabIndex = 0;
+            this.emailsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.emailsDataGridView.Location = new System.Drawing.Point(6, 54);
+            this.emailsDataGridView.Name = "emailsDataGridView";
+            this.emailsDataGridView.Size = new System.Drawing.Size(341, 82);
+            this.emailsDataGridView.TabIndex = 0;
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // FrmRegistroEmpleados
             // 
@@ -275,7 +290,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buscarButton);
             this.Controls.Add(this.eliminarButton);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.nuevoButton);
             this.Controls.Add(this.guardarButton);
             this.Controls.Add(empleadoIdLabel);
             this.Controls.Add(this.empleadoIdTextBox);
@@ -293,7 +308,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.retencionesDataGridView)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emailsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -306,19 +322,20 @@
         private System.Windows.Forms.TextBox sueldoTextBox;
         private System.Windows.Forms.Button buscarButton;
         private System.Windows.Forms.Button eliminarButton;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button nuevoButton;
         private System.Windows.Forms.Button guardarButton;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button agregarButton;
+        private System.Windows.Forms.Button agregarRetencionButton;
         private System.Windows.Forms.TextBox retencionValorTextBox;
         private System.Windows.Forms.TextBox retencionDescripcionTextBox;
         private System.Windows.Forms.TextBox retencionIdTextBox;
         private System.Windows.Forms.DataGridView retencionesDataGridView;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox emailTextBox;
+        private System.Windows.Forms.Button agregarEmailButton;
+        private System.Windows.Forms.TextBox emailEmailTextBox;
+        private System.Windows.Forms.TextBox emailTipoTextBox;
         private System.Windows.Forms.TextBox emailIdTextBox;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView emailsDataGridView;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

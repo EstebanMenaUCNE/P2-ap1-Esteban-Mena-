@@ -10,9 +10,9 @@ namespace BLL
 {
     public class RetencionBLL
     {
-        public static bool Guardar(Retencion retencion)
+        public static bool Guardar(Retenciones retencion)
         {
-            using (var repositorio = new Repositorio<Retencion>())
+            using (var repositorio = new Repositorio<Retenciones>())
             {
                 if (Buscar(retencion.RetencionId) == null)
                 {
@@ -27,25 +27,25 @@ namespace BLL
             }
         }
 
-        public static Retencion Buscar(int id)
+        public static Retenciones Buscar(int id)
         {
-            using (var repositorio = new Repositorio<Retencion>())
+            using (var repositorio = new Repositorio<Retenciones>())
             {
                 return repositorio.Buscar(R => R.RetencionId == id);
             }
         }
 
-        public static bool Eliminar(Retencion retencion)
+        public static bool Eliminar(Retenciones retencion)
         {
-            using (var repositorio = new Repositorio<Retencion>())
+            using (var repositorio = new Repositorio<Retenciones>())
             {
                 return repositorio.Eliminar(retencion);
             }
         }
 
-        public static List<Entidades.Retencion> GetList(Expression<Func<Entidades.Retencion, bool>> criterioBusqueda)
+        public static List<Entidades.Retenciones> GetList(Expression<Func<Entidades.Retenciones, bool>> criterioBusqueda)
         {
-            using (var repositorio = new Repositorio<Entidades.Retencion>())
+            using (var repositorio = new Repositorio<Entidades.Retenciones>())
             {
                 return repositorio.GetList(criterioBusqueda);
             }

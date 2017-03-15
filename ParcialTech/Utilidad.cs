@@ -13,5 +13,12 @@ namespace ParcialTech
             int.TryParse(texto, out numero);
             return numero;
         }
+
+        public static double ToDouble(string texto)
+        {
+            double numero = 0;
+            double.TryParse(texto, out numero);
+            return numero;
+        }
     }
 }

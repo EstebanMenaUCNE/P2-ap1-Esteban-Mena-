@@ -68,6 +68,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Consultas\FrmConsultaEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\FrmConsultaEmpleados.Designer.cs">
+      <DependentUpon>FrmConsultaEmpleados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\FrmConsultaRetenciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\FrmConsultaRetenciones.Designer.cs">
+      <DependentUpon>FrmConsultaRetenciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\FrmConsultaTiposEmail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\FrmConsultaTiposEmail.Designer.cs">
+      <DependentUpon>FrmConsultaTiposEmail.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +118,15 @@
       <DependentUpon>FrmRegistroTiposEmails.cs</DependentUpon>
     </Compile>
     <Compile Include="Utilidad.cs" />
+    <EmbeddedResource Include="Consultas\FrmConsultaEmpleados.resx">
+      <DependentUpon>FrmConsultaEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\FrmConsultaRetenciones.resx">
+      <DependentUpon>FrmConsultaRetenciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\FrmConsultaTiposEmail.resx">
+      <DependentUpon>FrmConsultaTiposEmail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -144,9 +171,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Consultas\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="DataBase\ParcialDb.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

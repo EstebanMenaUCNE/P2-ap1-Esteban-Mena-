@@ -9,9 +9,9 @@ namespace BLL
 {
     public class EmpleadoBLL
     {
-        public static bool Guardar(Entidades.Empleado empleado)
+        public static bool Guardar(Entidades.Empleados empleado)
         {
-            using (var repositorio = new Repositorio<Entidades.Empleado>())
+            using (var repositorio = new Repositorio<Entidades.Empleados>())
             {
                 if (Buscar(empleado.EmpleadoId) == null)
                 {
@@ -26,25 +26,25 @@ namespace BLL
             }
         }
 
-        public static Entidades.Empleado Buscar(int id)
+        public static Entidades.Empleados Buscar(int id)
         {
-            using (var repositorio = new Repositorio<Entidades.Empleado>())
+            using (var repositorio = new Repositorio<Entidades.Empleados>())
             {
                 return repositorio.Buscar(R => R.EmpleadoId == id);
             }
         }
 
-        public static bool Eliminar(Entidades.Empleado empleado)
+        public static bool Eliminar(Entidades.Empleados empleado)
         {
-            using (var repositorio = new Repositorio<Entidades.Empleado>())
+            using (var repositorio = new Repositorio<Entidades.Empleados>())
             {
                 return repositorio.Eliminar(empleado);
             }
         }
 
-        public static List<Entidades.Empleado> GetList(Expression<Func<Entidades.Empleado, bool>> criterioBusqueda)
+        public static List<Entidades.Empleados> GetList(Expression<Func<Entidades.Empleados, bool>> criterioBusqueda)
         {
-            using (var repositorio = new Repositorio<Entidades.Empleado>())
+            using (var repositorio = new Repositorio<Entidades.Empleados>())
             {
                 return repositorio.GetList(criterioBusqueda);
             }

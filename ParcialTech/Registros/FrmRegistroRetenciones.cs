@@ -20,6 +20,7 @@ namespace ParcialTech.Registros
 
         private void Limpiar()
         {
+            retencionIdTextBox.Clear();
             descripcionTextBox.Clear();
             valorTextBox.Clear();
             descripcionTextBox.Focus();
@@ -41,9 +42,9 @@ namespace ParcialTech.Registros
             return flag;
         }
 
-        private Retencion GetRetencionCampos()
+        private Retenciones GetRetencionCampos()
         {
-            return new Retencion(Utilidad.ToInt(retencionIdTextBox.Text), descripcionTextBox.Text, Utilidad.ToInt(valorTextBox.Text));
+            return new Retenciones(Utilidad.ToInt(retencionIdTextBox.Text), descripcionTextBox.Text, Utilidad.ToInt(valorTextBox.Text));
         }
 
         private void FrmRegistroRetenciones_Load(object sender, EventArgs e)
@@ -60,7 +61,7 @@ namespace ParcialTech.Registros
         {
             if (!string.IsNullOrWhiteSpace(retencionIdTextBox.Text))
             {
-                Retencion retencion = RetencionBLL.Buscar(Utilidad.ToInt(retencionIdTextBox.Text));
+                Retenciones retencion = RetencionBLL.Buscar(Utilidad.ToInt(retencionIdTextBox.Text));
                 if (retencion != null)
                 {
                     descripcionTextBox.Text = retencion.Descripcion;

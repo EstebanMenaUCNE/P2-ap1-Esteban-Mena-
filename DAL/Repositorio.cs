@@ -9,7 +9,7 @@ namespace DAL
 {
     public class Repositorio<TEntity> : IRepository<TEntity> where TEntity : class
     {
-        public static ParcialDb Context = null;
+        public ParcialDb Context = null;
 
         public Repositorio()
         {
